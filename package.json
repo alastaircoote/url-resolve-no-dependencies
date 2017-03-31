@@ -1,7 +1,7 @@
 {
   "name": "url-resolve-no-dependencies",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.0.1",
+  "main": "./src/url-resolve.js",
   "license": "MIT",
   "dependencies": {},
   "types": "./src/url-resolve.d.ts"

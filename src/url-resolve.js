@@ -27,10 +27,23 @@ module.exports = function(from, to) {
     fromSplit.pop();
   }
 
+  let toSplit = to.split("/");
+
+  // ignore parts that refer to the current directory.
+  toSplit = toSplit.filter(item => item != ".");
+
+  toSplit.forEach(item => {
+    if (item === "..") {
+      fromSplit.pop();
+    } else {
+      fromSplit.push(item);
+    }
+  });
+
   if (to[0] === "/") {
     fromSplit = to.substr(1).split("/");
   } else {
-    fromSplit.push(to);
+    // fromSplit = fromSplit.concat(toSplit);
   }
 
   return protocol + doubleSlash + domain + "/" + fromSplit.join("/");
